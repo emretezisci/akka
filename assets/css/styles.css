@@ -1,0 +1,40 @@
+.akka-pro-notification {
+    position: fixed; /* Or absolute, depending on your layout */
+    top: 20px; 
+    right: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's on top of other elements */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; 
+}
+
+.akka-pro-notification.hidden {
+    opacity: 0;
+    pointer-events: none; /* Prevent clicks on hidden notification */
+}
+
+.akka-pro-notification.success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.akka-pro-notification.error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* Your modal CSS */
+.akka-pro-edit-claim-modal {
+    /* ... other styles ... */
+    overflow: visible; /* Allow overflow */
+    z-index: 999; 
+}
+
+/* Notification CSS */
+.akka-pro-notification {
+    /* ... other styles ... */
+    z-index: 1000; /* Higher z-index than the modal */
+}

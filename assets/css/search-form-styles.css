@@ -1,0 +1,296 @@
+/* Booking Form Container */
+.booking-form-container {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#booking-loader {
+    display: none; /* Initially hidden */
+    position: fixed; /* Stay in place even when scrolling */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.loader-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the content */
+}
+
+.loader-content img {
+    /* ... styles for the loader image ... */
+    width: 120px;
+    height: auto;
+}
+
+/* Booking Form */
+.booking-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* Align items to the bottom */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.booking-form .form-group {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.booking-form input,
+.booking-form select,
+#room-guest-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#room-guest-btn {
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-btn {
+    /* Style the button directly */
+    background-color: #0071c2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+.modal.show-age-column {
+    width: 500px;
+}
+
+.dialog-overlay {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #0071c2;
+}
+
+.room-container {
+    margin-bottom: 20px;
+}
+
+.room-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px 0 10px 32px;
+}
+
+.room-header.show-age-column, 
+.room-row.show-age-column {
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* When age column is shown: 4 columns */
+}
+
+.room-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.remove-room {
+    grid-column: 1;
+    justify-self: center;
+    color: #0071c2;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.room-info {
+    display: flex;
+    align-items: center;
+}
+
+.guest-controls {
+    grid-column: span 1;
+    /* Occupies one column */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center the controls within their column */
+}
+
+.room-header.show-age-column,
+.room-row.show-age-column {
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 columns when Kid's Age is shown */
+}
+
+.room-info span {
+    margin-left: 10px;
+}
+
+.control-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #0071c2;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #0071c2;
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.guest-count {
+    margin: 0 10px;
+}
+
+.add-room-btn {
+    color: #0071c2;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.add-room-btn::before {
+    content: '+';
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-cancel {
+    background: white;
+    border: 1px solid #0071c2;
+    color: #0071c2;
+    margin-right: 10px;
+}
+
+.btn-done {
+    background: #0071c2;
+    border: none;
+    color: white;
+}
+
+.kid-ages-column {
+    display: none;
+}
+
+.show-age-column .kid-ages-column {
+    display: block;
+}
+
+.kid-ages-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.kid-age-select {
+    width: 60px;
+    height: 30px;
+    border: 1px solid #0071c2;
+    border-radius: 4px;
+    text-align: center;
+    padding: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .modal {
+        width: 95%;
+    }
+
+    .room-header,
+    .room-row {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .kid-ages-column {
+        display: none;
+    }
+
+    .kid-ages-row {
+        grid-column: span 3;
+    }
+}

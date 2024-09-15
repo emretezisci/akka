@@ -1,0 +1,333 @@
+#results {
+    margin-top: 20px;
+}
+
+#results-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#results-left-column, #results-right-column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+#results-left-column {
+    max-width: 65%;
+}
+
+#results-right-column {
+    max-width: 30%;
+}
+
+#your-stay {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#your-stay p {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#your-stay .stay-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#results .details {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#results .detail-item {
+    margin-right: 10px;
+}
+
+#results .separator {
+    margin: 0 10px;
+}
+
+#results .steps-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#results .step {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#results .step.active {
+    background-color: #0073aa;
+    color: #fff;
+}
+
+#results .hotel-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#results .hotel-card h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#results .hotel-card p {
+    margin-bottom: 10px;
+}
+
+#results .hotel-card a {
+    color: #0073aa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#results .hotel-card a:hover {
+    text-decoration: underline;
+}
+
+#results .summary-card h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#results-room-cards, #results-service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.room-card, .service-card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: calc(50% - 20px);
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.room-card img, .service-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.room-card h3, .service-card h3 {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+}
+
+.room-card a, .service-card a {
+    color: #0073aa;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.room-card a:hover, .service-card a:hover {
+    text-decoration: underline;
+}
+
+.service-card button {
+    background-color: #0073aa;
+    color: #fff;
+    padding: 5px 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 15%;
+    min-width: 32px;
+}
+
+.room-card button {
+    background-color: #0073aa;
+    color: #fff;
+    padding: 5px 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    min-width: 32px;
+}
+
+.room-card button:hover, .service-card button:hover {
+    background-color: #005f8a;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-left-column {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.modal-right-column {
+    flex: 2;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#details-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+#modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+#modal-image-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#modal-image {
+    width: 100%;
+    height: auto;
+}
+
+#modal-select-button {
+    background-color: #0073aa;
+    color: #fff;
+    padding: 5px 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    min-width: 32px;
+}
+
+#modal-details {
+    margin-top: 20px;
+}
+
+.summary-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.summary-item p {
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
+.summary-price {
+    font-weight: bold;
+    text-align: right;
+}
+
+.summary-total {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.summary-total .summary-item {
+    border-bottom: none;
+}
+
+.summary-total .total {
+    border-top: 2px solid #000;
+    padding-top: 10px;
+}
+
+.service-pricing {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.service-pricing p {
+    margin: 4px 8px;
+}
+
+.service-count {
+    display: inline-block;
+    margin: 0 10px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+.increase-service-button,
+.decrease-service-button {
+    width: 15%;
+    min-width: 32px;
+    padding: 5px 0;
+}

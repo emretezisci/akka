@@ -1,0 +1,101 @@
+.claim-form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.claim-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.claim-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.claim-form .form-group.full-width {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.claim-form select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.claim-form .form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.claim-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #666;
+}
+
+.claim-form input,
+.claim-form select,
+.claim-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.claim-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Styles for child ages container */
+#child-ages-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between child age selects */
+}
+
+.child-age-wrapper {
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: calc(33.333% - 10px); /* Ensures at least 3 per row, adjusting for gap */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .child-age-wrapper {
+        min-width: calc(50% - 10px); /* 2 per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .child-age-wrapper {
+        min-width: 100%; /* 1 per row on very small screens */
+    }
+}
+
+/* Ensure the select fills its wrapper */
+.child-age-wrapper select {
+    width: 100%;
+}
+
+.save-btn {
+    background-color: #a57c47;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    width: auto;
+    align-self: flex-start;
+}
+
+.save-btn:hover {
+    background-color: #8a6636;
+}

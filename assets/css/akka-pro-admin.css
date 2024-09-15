@@ -1,0 +1,63 @@
+/* Akka Pro Admin Styles */
+
+/* Vertical stacking for claim action buttons */
+.claim-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.claim-actions button {
+    width: 100%;
+}
+
+/* Style for the claim reason textarea */
+.claim-reason {
+    width: 100%;
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* Highlight selected claim status */
+.claim-status-selected {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+/* General table styles */
+.widefat {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.widefat th, .widefat td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.widefat th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Responsive table */
+@media screen and (max-width: 782px) {
+    .widefat th, .widefat td {
+        display: block;
+    }
+
+    .widefat th {
+        text-align: left;
+    }
+
+    .widefat td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .widefat td:last-child {
+        border-bottom: 0;
+    }
+}
