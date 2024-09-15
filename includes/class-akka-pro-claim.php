@@ -15,9 +15,14 @@ class Akka_Pro_Claim
 
     public function enqueue_claim_scripts()
     {
-        global $post;
+        // Get the selected profile page ID from the options
+        $claim_page_id = get_option('akka_pro_claim_page');
 
-        if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'claim_form')) {
+        // Get the current page ID
+        $current_page_id = get_queried_object_id();
+
+        // Conditionally enqueue scripts based on the current page ID
+        if ($current_page_id == $claim_page_id) {
             wp_enqueue_script('akka-pro-claim', AKKA_PRO_PLUGIN_URL . 'assets/js/claim.js', array('jquery'), AKKA_PRO_VERSION, true);
             wp_enqueue_style('akka-pro-claim', AKKA_PRO_PLUGIN_URL . 'assets/css/claim-styles.css', array(), AKKA_PRO_VERSION, 'all');
 
@@ -32,7 +37,6 @@ class Akka_Pro_Claim
             ));
         }
     }
-
 
     public function render_claim_form()
     {
