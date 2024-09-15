@@ -179,6 +179,7 @@ class Akka_Pro_Admin
 
     public function get_rooms_by_hotel()
     {
+        wp_send_json_success('akka_pro_get_rooms is called');
         check_ajax_referer('akka_pro_nonce', 'nonce');
 
         $acf_hotel_id = sanitize_text_field($_POST['acf_hotel_id']);

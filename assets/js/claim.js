@@ -12,38 +12,32 @@ window.onload = function () {
         }
 
         $('#hotel').on('change', function () {
-            var hotelId = $(this).val();  // This is now the acf_hotel_id, which we will use as CompanyId
+            console.log('hi');
+            var acfHotelId = $(this).find(':selected').data('acf-hotel-id');
             var roomSelect = $('#room');
-
-            if (hotelId) {
+    
+            if (acfHotelId) {
                 $.ajax({
                     url: akka_pro_data.ajax_url,
                     type: 'POST',
                     data: {
-                        action: 'get_rooms',
-                        hotel_id: hotelId,
+                        action: 'get_rooms_by_hotel',
+                        acf_hotel_id: acfHotelId,
                         nonce: akka_pro_data.nonce
                     },
                     success: function (response) {
-                        console.log('Response from get_rooms:', response);
-
                         if (response.success) {
                             roomSelect.empty().append('<option value="">Select Room</option>');
                             $.each(response.data.rooms, function (index, room) {
                                 roomSelect.append('<option value="' + room.id + '">' + room.name + '</option>');
                             });
                             roomSelect.prop('disabled', false);
-
-                            // Use the hotelId directly as CompanyId since it's the acf_hotel_id
-                            console.log('CompanyId set to:', hotelId);
                         } else {
-                            alert('Error: ' + response.data);
                             roomSelect.empty().append('<option value="">No rooms available</option>');
                             roomSelect.prop('disabled', true);
                         }
                     },
                     error: function () {
-                        alert('An error occurred while fetching rooms.');
                         roomSelect.empty().append('<option value="">Error loading rooms</option>');
                         roomSelect.prop('disabled', true);
                     }

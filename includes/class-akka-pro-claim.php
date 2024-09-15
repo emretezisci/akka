@@ -32,8 +32,8 @@ class Akka_Pro_Claim
 
             // Localize script for AJAX
             wp_localize_script('akka-pro-claim', 'akka_pro_data', array(
-                'ajax_url' => rest_url('akka/v1/submit-claim'),
-                'nonce' => wp_create_nonce('wp_rest')
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('akka_pro_nonce')
             ));
         }
     }
