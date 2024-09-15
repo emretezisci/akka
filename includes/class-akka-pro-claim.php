@@ -23,8 +23,8 @@ class Akka_Pro_Claim
 
         // Conditionally enqueue scripts based on the current page ID
         if ($current_page_id == $claim_page_id) { 
-            wp_enqueue_script('akka-pro-claim', plugin_dir_url(__FILE__) . 'assets/js/claim.js', array('jquery'), AKKA_PRO_VERSION, true);
-            wp_enqueue_style('akka-pro-claim', plugin_dir_url(__FILE__) . 'assets/css/claim-styles.css', array(), AKKA_PRO_VERSION, 'all'); 
+            wp_enqueue_script('akka-pro-claim', AKKA_PRO_PLUGIN_URL . 'assets/js/claim.js', array('jquery'), AKKA_PRO_VERSION, true);
+            wp_enqueue_style('akka-pro-claim', AKKA_PRO_PLUGIN_URL . 'assets/css/claim-styles.css', array(), AKKA_PRO_VERSION, 'all');
 
             // Enqueue Flatpickr for date selection
             wp_enqueue_style('flatpickr-css', 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css');
