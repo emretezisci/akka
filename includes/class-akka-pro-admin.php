@@ -7,6 +7,7 @@ class Akka_Pro_Admin
         add_action('admin_menu', array($this, 'add_plugin_admin_menu'));
         add_action('admin_init', array($this, 'register_settings'));
         add_action('wp_ajax_get_rooms_by_hotel', array($this, 'get_rooms_by_hotel'));
+        add_action('wp_ajax_nopriv_get_rooms_by_hotel', array($this, 'get_rooms_by_hotel'));
         add_action('wp_ajax_save_default_bonus_rate', array($this, 'save_default_bonus_rate'));
         add_action('wp_ajax_save_bonus_settings', array($this, 'save_bonus_settings'));
         add_action('wp_ajax_delete_bonus_setting', array($this, 'delete_bonus_setting'));
@@ -179,7 +180,6 @@ class Akka_Pro_Admin
 
     public function get_rooms_by_hotel()
     {
-        wp_send_json_success('akka_pro_get_rooms is called');
         check_ajax_referer('akka_pro_nonce', 'nonce');
 
         $acf_hotel_id = sanitize_text_field($_POST['acf_hotel_id']);

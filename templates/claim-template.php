@@ -39,7 +39,7 @@
                 foreach ($hotels as $hotel): 
                     $hotel_acf_id = get_field('acf_hotel_id', $hotel->ID);
                 ?>
-                    <option value="<?php echo esc_attr($hotel_acf_id); ?>">
+                    <option value="<?php echo esc_attr($hotel_acf_id); ?>" data-acf-hotel-id="<?php echo esc_attr($hotel_acf_id); ?>">
                         <?php echo esc_html($hotel->post_title); ?>
                     </option>
                 <?php endforeach; ?>

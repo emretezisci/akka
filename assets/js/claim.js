@@ -11,11 +11,12 @@ window.onload = function () {
             console.error('Flatpickr is not loaded');
         }
 
+        // Update the hotel change event handler
         $('#hotel').on('change', function () {
-            console.log('hi');
-            var acfHotelId = $(this).find(':selected').data('acf-hotel-id');
+            var acfHotelId = $(this).val();
             var roomSelect = $('#room');
-    
+            
+
             if (acfHotelId) {
                 $.ajax({
                     url: akka_pro_data.ajax_url,
@@ -26,18 +27,23 @@ window.onload = function () {
                         nonce: akka_pro_data.nonce
                     },
                     success: function (response) {
+                        console.log('Response from get_rooms_by_hotel:', response);
+
                         if (response.success) {
+                            
                             roomSelect.empty().append('<option value="">Select Room</option>');
                             $.each(response.data.rooms, function (index, room) {
                                 roomSelect.append('<option value="' + room.id + '">' + room.name + '</option>');
                             });
                             roomSelect.prop('disabled', false);
                         } else {
+                            alert('Error: ' + response.data.message);
                             roomSelect.empty().append('<option value="">No rooms available</option>');
                             roomSelect.prop('disabled', true);
                         }
                     },
                     error: function () {
+                        alert('An error occurred while fetching rooms.');
                         roomSelect.empty().append('<option value="">Error loading rooms</option>');
                         roomSelect.prop('disabled', true);
                     }
